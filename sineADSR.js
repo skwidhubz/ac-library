@@ -25,10 +25,12 @@ function mainOsc(){
 
 
 const startOsc = () => {
+    mainOsc();
     osc.start();
     console.log('start osc exec');
 };
 const stopOsc = () => {
+    mainOsc();
     osc.stop(audioCtx.currentTime + 1);
     console.log('stop osc exec');
 };
