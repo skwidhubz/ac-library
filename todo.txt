@@ -1,0 +1,7 @@
+define pitch in Hz from integer value
+
+enable delay effect
+
+build reverb effect
+
+

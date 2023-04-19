@@ -19,30 +19,82 @@
 
         <div id="control-card">
             <button id="app-button">
-                AC start 🎬
+                Start App 🎬
             </button>
             <button id="start-button">
-                gain 1 🔊
+                trigger osc 🔊
             </button>
             <button id="stop-button">
-                gain 0 🔇
+                mute 🔇
             </button>
         </div>
 
-        <div class="slide-container">
-            <div>
-                <input type="range" min="700" max="9000" value="1500" class="slider" id="pitch-slider">
+        <div id="synth-container">
+
+            <div id="wave-selector-container">
+                <label for="wavforms">Choose a waveform:</label>
+
+                    <br>
+                    <select name="waveforms" id="waveform-dropdown">
+                    <option value="sine">Sine</option>
+                    <option value="square">Square</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="triangle">Triangle</option>
+                    </select>
+                    <br>
             </div>
-            <div>
-                <input type="number" id="pitch-text" name="pitch">
+
+            <div class="slide-container">
+                <div>
+                    pitch
+                    <input type="range" min="80" max="1000" class="slider" id="pitch-slider">
+                </div>
+                <div class="param-display" id="pitch-display">
+                
+                </div>
+                
+            <div id="adsr-container">
+                    <div>
+                        attack
+                        <input type="range" min="101" max="1000" class="slider" id="attack-slider">
+                    </div>
+                    <div class="param-display" id="attack-display">
+                    
+                    </div>
+
+                    <div>
+                    decay
+                        <input type="range" min="101" max="1000" class="slider" id="decay-slider">
+                    </div>
+                    <div class="param-display" id="decay-display">
+                    
+                    </div>
+
+                    <div>
+                        sustain
+                        <input type="range" min="101" max="1000"  class="slider" id="sustain-slider">
+                    </div>
+                    <div class="param-display" id="sustain-display">
+                    
+                    </div>
+
+                    <div>
+                        release
+                        <input type="range" min="101" max="1000"  class="slider" id="release-slider">
+                    </div>
+                    <div class="param-display" id="release-display">
+                    
+                    </div>
+                </div>
+                <br>
+                <br>
+
             </div>
-            <br>
-            <br>
 
         </div>
 
     </div>
-    
+
     <script src="sineADSR.js"></script>
 
 </body>
