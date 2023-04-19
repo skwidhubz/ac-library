@@ -1,13 +1,16 @@
-const audioCtx = new AudioContext();
-const osc = audioCtx.createOscillator();
-const gainNode = audioCtx.createGain();
 const startButton = document.getElementById('start-button');
 const stopButton = document.getElementById('stop-button');
+const appStart = document.getElementById('app-button');
 
-// TODO: fix console error preventing osc from playing. 
 
 
-function mainOsc(){
+
+function AudioContextFunc(){
+
+    const audioCtx = new AudioContext();
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
     osc.type = "sine";
     osc.frequency.setValueAtTime(440, audioCtx.currentTime);
     
@@ -19,23 +22,27 @@ function mainOsc(){
     
     osc.connect(gainNode);
     gainNode.connect(audioCtx.destination);
+
+    const startOsc = function () {
+        osc.start();
+        console.log('start osc exec');
+    };
     
+    const stopOsc = function () {
+        osc.stop(audioCtx.currentTime + 1);
+        console.log('stop osc exec');
+    };
+    
+    startButton.addEventListener('click', startOsc);
+    stopButton.addEventListener('click', stopOsc);
+
+
 };
 
+appStart.addEventListener('click', AudioContextFunc);
 
 
-const startOsc = () => {
-    mainOsc();
-    osc.start();
-    console.log('start osc exec');
-};
-const stopOsc = () => {
-    mainOsc();
-    osc.stop(audioCtx.currentTime + 1);
-    console.log('stop osc exec');
-};
 
-startButton.addEventListener('click', startOsc());
-stopButton.addEventListener('click', stopOsc());
+
 
 
