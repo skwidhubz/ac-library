@@ -1,4 +1,13 @@
+#root {
+--primary1: #bce784ff;
+--primary2: #5dd39eff;
+--secondary1: #348aa7ff;
+--secondary2: #525174ff;
+--bkground: #513b56ff;
+}
+
 #main-container {
+    background: #513b56ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,6 +15,20 @@
 }
 
 #control-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    width: 50%;
+    height: 50%;
+}
+
+#slide-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 50px;
     width: 50%;
     height: 50%;
@@ -16,6 +39,6 @@ button {
     width: 180px;
     height: 30px;
     font-weight: bold;
-    color: blueviolet;
-    background-color: aquamarine;
+    color: #bce784ff;
+    background-color: #348aa7ff;
 }

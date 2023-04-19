@@ -19,16 +19,30 @@
 
         <div id="control-card">
             <button id="app-button">
-                AC start
+                AC start 🎬
             </button>
             <button id="start-button">
-                gain 1
+                gain 1 🔊
             </button>
             <button id="stop-button">
-                gain 0
+                gain 0 🔇
             </button>
         </div>
+
+        <div class="slide-container">
+            <div>
+                <input type="range" min="700" max="9000" value="1500" class="slider" id="pitch-slider">
+            </div>
+            <div>
+                <input type="number" id="pitch-text" name="pitch">
+            </div>
+            <br>
+            <br>
+
+        </div>
+
     </div>
+    
     <script src="sineADSR.js"></script>
 
 </body>
