@@ -1,4 +1,4 @@
-#root {
+:root {
 --primary1: #bce784ff;
 --primary2: #5dd39eff;
 --secondary1: #348aa7ff;
@@ -16,7 +16,7 @@ body {
 }
 
 #main-container {
-    background: #513b56ff;
+    background: var(--bkground);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +25,7 @@ body {
 
 #control-card {
     margin: 10px;
-    background-color: #525174ff;
+    background-color: var(--secondary2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,8 +61,8 @@ body {
     align-items: center;
     margin: 10px;
     padding: 20px;
-    color: #5dd39eff;
-    background-color: #525174ff;
+    color: var(--primary2);
+    background-color: var(--secondary2);
 }
 
 button {
@@ -70,6 +70,6 @@ button {
     width: 180px;
     height: 30px;
     font-weight: bold;
-    color: #bce784ff;
-    background-color: #348aa7ff;
+    color: var(--primary1);
+    background-color: var(--secondary1);
 }
