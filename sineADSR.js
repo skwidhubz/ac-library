@@ -38,13 +38,18 @@ function AudioContextFunc(){
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
 
     const min = 0.000001; // gain reset value
+
+    var attackTime = 1;
+    var decayAmp = 0.9;
+    var sustainAmp = 0.3;
+    var releaseTime = 0.01
     
     function ADSR(){
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.1);
-    gainNode.gain.exponentialRampToValueAtTime(0.9, audioCtx.currentTime + 0.2);
-    gainNode.gain.exponentialRampToValueAtTime(0.3, audioCtx.currentTime + 0.4);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1);
+    gainNode.gain.linearRampToValueAtTime(attackTime, audioCtx.currentTime + 0.1); // relevant values changing make vars (amp)
+    gainNode.gain.exponentialRampToValueAtTime(decayAmp, audioCtx.currentTime + 0.2); // relevant values changing make vars (time)
+    gainNode.gain.exponentialRampToValueAtTime(sustainAmp, audioCtx.currentTime + 0.4); // relevant values changing make vars (amp)
+    gainNode.gain.exponentialRampToValueAtTime(releaseTime, audioCtx.currentTime + 1); // relevant values changing make vars (time)
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime + 1);
     };
     
@@ -78,22 +83,26 @@ function AudioContextFunc(){
 
     // Attack slider 
     attackSliderEl.addEventListener('change', (e) => {
-        gainNode.gain.linearRampToValueAtTime(e.target.value / 100, audioCtx.currentTime + 0.1);
+        attackTime = e.target.value;
+        gainNode.gain.linearRampToValueAtTime(attackTime / 100, audioCtx.currentTime + 0.1);
         attackValue.textContent = e.target.value;
     })
     // Decay slider
     decaySliderEl.addEventListener('change', (e) => {
-        gainNode.gain.exponentialRampToValueAtTime(e.target.value / 100, audioCtx.currentTime + 0.2);
+        decayAmp = e.target.value;
+        gainNode.gain.exponentialRampToValueAtTime(decayAmp / 100, audioCtx.currentTime + 0.2);
         decayValue.textContent = e.target.value;
     })
     // Sustain slider
     sustainSliderEl.addEventListener('change', (e) => {
-        gainNode.gain.exponentialRampToValueAtTime(e.target.value / 100, audioCtx.currentTime + 0.4);
+        sustainAmp = e.target.value
+        gainNode.gain.exponentialRampToValueAtTime(sustainAmp / 100, audioCtx.currentTime + 0.4);
         sustainValue.textContent = e.target.value;
     })
     // Release slider
     releaseSliderEl.addEventListener('change', (e) => {
-        gainNode.gain.exponentialRampToValueAtTime(e.target.value / 100, audioCtx.currentTime + 1);
+        releaseTime = e.target.value;
+        gainNode.gain.exponentialRampToValueAtTime(releaseTime / 100, audioCtx.currentTime + 1);
         releaseValue.textContent = e.target.value;
     })
 

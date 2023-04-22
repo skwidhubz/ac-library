@@ -31,29 +31,119 @@
 
         <div id="synth-container">
 
-            <div id="wave-selector-container">
-                <label for="wavforms">Choose a waveform:</label>
 
+            <div id="osc-adsr-container">
+                <div id="wave-selector-container">
+                    <label for="wavforms">waveform:</label>
+
+                        <br>
+                        <select name="waveforms" id="waveform-dropdown">
+                        <option value="sine">Sine</option>
+                        <option value="square">Square</option>
+                        <option value="sawtooth">Sawtooth</option>
+                        <option value="triangle">Triangle</option>
+                        </select>
+                        <br>
+                </div>
+
+                <div class="slide-container">
+                    <div>
+                        pitch
+                        <input type="range" min="80" max="1000" class="slider" id="pitch-slider">
+                    </div>
+                    <div class="param-display" id="pitch-display">
+                    
+                    </div>
+            
+                <div id="adsr-container">
+                        <div>
+                            attack
+                            <input type="range" min="101" max="1000" class="slider" id="attack-slider">
+                        </div>
+                        <div class="param-display" id="attack-display">
+                        
+                        </div>
+
+                        <div>
+                        decay
+                            <input type="range" min="101" max="1000" class="slider" id="decay-slider">
+                        </div>
+                        <div class="param-display" id="decay-display">
+                        
+                        </div>
+
+                        <div>
+                            sustain
+                            <input type="range" min="101" max="1000"  class="slider" id="sustain-slider">
+                        </div>
+                        <div class="param-display" id="sustain-display">
+                        
+                        </div>
+
+                        <div>
+                            release
+                            <input type="range" min="101" max="1000"  class="slider" id="release-slider">
+                        </div>
+                        <div class="param-display" id="release-display">
+                        
+                        </div>
+                    </div>
                     <br>
-                    <select name="waveforms" id="waveform-dropdown">
-                    <option value="sine">Sine</option>
-                    <option value="square">Square</option>
-                    <option value="sawtooth">Sawtooth</option>
-                    <option value="triangle">Triangle</option>
-                    </select>
                     <br>
+
+                </div>
+            </div> <!---End of osc and adsr container-->
+
+            <div id="modulation-container">
+
+                <div id="lfo-container">
+                    <label for="wavforms">lfo wave:</label>
+
+                        <br>
+                        <select name="waveforms" id="lfo-waveform-dropdown" class="dropdown">
+                        <option value="sine">Sine</option>
+                        <option value="square">Square</option>
+                        <option value="sawtooth">Sawtooth</option>
+                        <option value="triangle">Triangle</option>
+                        </select>
+                        <br>
+                </div>
+
+                <div id="lfo-parameters">
+                    <div>
+                        speed
+                        <input type="range" min="101" max="1000" class="slider" id="lfo-speed-slider">
+                    </div>
+                    <div class="param-display" id="lfo-speed-display">
+                    
+                    </div>
+
+                    <div>
+                    rate
+                        <input type="range" min="101" max="1000" class="slider" id="lfo-rate-slider">
+                    </div>
+                    <div class="param-display" id="lfo-rate-display">
+                    
+                    </div>
+                </div>
+
             </div>
 
-            <div class="slide-container">
-                <div>
-                    pitch
-                    <input type="range" min="80" max="1000" class="slider" id="pitch-slider">
+            <div id="effects-container">
+
+                <div id="delay-container">
+                    <label for="wavforms">delay type:</label>
+
+                        <br>
+                        <select name="waveforms" id="delay-type-dropdown" class="dropdown">
+                        <option value="sine">single</option>
+                        <option value="square">tap</option>
+                        <option value="sawtooth">ping-pong</option>
+                        </select>
+                        <br>
                 </div>
-                <div class="param-display" id="pitch-display">
-                
-                </div>
-                
-            <div id="adsr-container">
+
+                <div id="adsr-container">
                     <div>
                         attack
                         <input type="range" min="101" max="1000" class="slider" id="attack-slider">
@@ -69,27 +159,11 @@
                     <div class="param-display" id="decay-display">
                     
                     </div>
-
-                    <div>
-                        sustain
-                        <input type="range" min="101" max="1000"  class="slider" id="sustain-slider">
-                    </div>
-                    <div class="param-display" id="sustain-display">
-                    
-                    </div>
-
-                    <div>
-                        release
-                        <input type="range" min="101" max="1000"  class="slider" id="release-slider">
-                    </div>
-                    <div class="param-display" id="release-display">
-                    
-                    </div>
                 </div>
-                <br>
-                <br>
 
             </div>
+            
+            
 
         </div>
 
