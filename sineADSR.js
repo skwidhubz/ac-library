@@ -27,10 +27,20 @@ function AudioContextFunc(){
     const osc = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();
 
-    // change the waveform depending on dropdown box selection
-    waveFormSelector.addEventListener('change', (e) => {
-        osc.type = e.target.value;
-    })
+    const waveForms = [
+        'sine', 
+        'sawtooth',
+        'triangle',
+        'square'
+    ];
+
+    // Waveform type direct from array to hardcode
+    osc.type = waveForms[0];
+
+    // // change the waveform depending on dropdown box selection 
+    // waveFormSelector.addEventListener('change', (e) => {
+    //     osc.type = e.target.value;
+    // })
     
 
     osc.frequency.setValueAtTime(400, audioCtx.currentTime);
@@ -39,15 +49,17 @@ function AudioContextFunc(){
 
     const min = 0.000001; // gain reset value
 
-    var attackTime = 1;
+
+
+    var attackTime = 0.1;
     var decayAmp = 0.9;
     var sustainAmp = 0.3;
     var releaseTime = 0.01
     
     function ADSR(){
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(attackTime, audioCtx.currentTime + 0.1); // relevant values changing make vars (amp)
-    gainNode.gain.exponentialRampToValueAtTime(decayAmp, audioCtx.currentTime + 0.2); // relevant values changing make vars (time)
+    gainNode.gain.linearRampToValueAtTime(0.1,  + 0.1); // relevant values changing make vars (amp)
+    gainNode.gain.exponentialRampToValueAtTime(decayAmp, + 0.2); // relevant values changing make vars (time)
     gainNode.gain.exponentialRampToValueAtTime(sustainAmp, audioCtx.currentTime + 0.4); // relevant values changing make vars (amp)
     gainNode.gain.exponentialRampToValueAtTime(releaseTime, audioCtx.currentTime + 1); // relevant values changing make vars (time)
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime + 1);
