@@ -7,6 +7,9 @@
 
 <br>
 
+### Updates:
+- added a basic osc with ADSR as a seperate js file. 
+
 ### <u>What is audioContext?</u>
 <br>
 
